@@ -1,0 +1,79 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+	  <div class="x_title">
+		<h2>Profs <small>Liste des profs</small></h2>
+		<ul class="nav navbar-right panel_toolbox">
+		  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+		  </li>
+		  <li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+			<ul class="dropdown-menu" role="menu">
+			  <li><a href="#">Settings 1</a>
+			  </li>
+			  <li><a href="#">Settings 2</a>
+			  </li>
+			</ul>
+		  </li>
+		  <li><a class="close-link"><i class="fa fa-close"></i></a>
+		  </li>
+		</ul>
+		<div class="clearfix"></div>
+	  </div>
+
+	  <div class="x_content">
+
+		<p>Those are the profs in the system</p>
+
+		<div class="table-responsive">
+		  <table class="table table-striped jambo_table bulk_action">
+			<thead>
+			  <tr class="headings">
+				<th>
+				  <input type="checkbox" id="check-all" class="flat">
+				</th>
+				<th class="column-title">Id </th>
+				<th class="column-title">First name </th>
+				<th class="column-title">Last name </th>
+				<th class="column-title">Email </th>
+				<th class="column-title no-link last"><span class="nobr">Action</span>
+				</th>
+				<th class="bulk-actions" colspan="7">
+				  <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+				</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+			
+			{% for prof in profs %}
+				{% set odd = False %}
+				{% if odd %}
+					<tr class="odd pointer">
+				{% else %}
+					<tr class="even pointer">
+				{% endif %}
+					<td class="a-center ">
+					  <input type="checkbox" class="flat" name="table_records">
+					</td>
+					<td class=" ">{{ prof.id }}</td>
+					<td class=" ">{{ prof.user.first_name }} </td>
+					<td class=" ">{{ prof.user.last_name }} </td>
+					<td class=" ">{{ prof.user.email }} </td>
+					<td class=" last"><a href="{{ url_for('admin.prof', prof_id=prof.id) }}">View</a>
+					</td>
+				</tr>
+				{% set odd = (not False) %}
+			{% endfor %}
+
+
+			</tbody>
+		  </table>
+		</div>
+	  </div>
+	</div>
+</div>
+
+{% endblock %}

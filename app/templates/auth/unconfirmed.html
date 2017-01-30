@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title %}Confirmer votre inscription{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>
+        Utilisateur: {{ current_user.username }}!
+    </h1>
+    <h3>Votre compte n'est pas confirmé</h3>
+
+    <p>
+        renvoyer l'eamail de confirmation
+        <a href="{{ url_for('auth.resend_confirmation') }}">Click here</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Bookings{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Booking</h1>
+	<h2>client: {{ client.user.last_name }} {{ client.user.first_name }}</h2>
+</div>
+
+<div>
+<p>id: {{ booking.id }}</p>
+<p>prof: {{ booking.prof.user.last_name }} {{ booking.prof.user.last_name }}</p>
+<p>date: {{ booking.date }}</p>
+<p>hours: {{ booking.hours }}</p>
+<p>done: {{ booking.done }}</p>
+<p>commented: {{ booking.commented }}</p>
+<p>past due: {{ booking.past_due }}</p>
+<p><a href="{{ url_for('client.validate', booking_id=booking.id) }}">Validate</a></p>
+<p><a href="{{ url_for('client.comment', booking_id=booking.id) }}">Comment</a></p>
+
+</div>
+
+{% endblock %}

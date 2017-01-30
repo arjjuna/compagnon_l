@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Comment{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Booking</h1>
+	<h2>client: {{ client.user.last_name }} {{ client.user.first_name }}</h2>
+</div>
+
+<div class="col-md-4">
+	{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+	
+	{{ wtf.quick_form(form) }}
+</div>
+{% endblock %}
+

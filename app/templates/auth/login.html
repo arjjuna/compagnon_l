@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Connexion</h1>
+	<h2>Inscription <a href="{{ url_for('auth.register_prof') }}">Prof?</a> <a href="{{ url_for('auth.register_client') }}">Client?</a> </h2>
+</div>
+
+<div class="col-md-4">
+	{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+	
+	{{ wtf.quick_form(form) }}
+</div>
+{% endblock %}
+

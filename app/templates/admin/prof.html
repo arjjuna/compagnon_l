@@ -1,0 +1,71 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="col-md-4 col-sm-6 col-xs-12">
+	<div class="x_panel">
+		<div class="x_title">
+			<h2>User profile info </h2>
+			<ul class="nav navbar-right panel_toolbox">
+				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="{{ url_for('admin.edit_user', prof_id=prof.id) }}">Edit</a>
+						</li>
+						<li><a href="#">Settings 2</a>
+						</li>
+					</ul>
+				</li>
+				<li><a class="close-link"><i class="fa fa-close"></i></a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="x_content">
+
+			<p><b>User id</b> {{ prof.user.id }}</p>
+			<p><b>Nom</b> {{ prof.user.first_name }}</p>
+			<p><b>Prénom</b> {{ prof.user.last_name }}</p>
+			<p><b>Membre depuis </b> {{ prof.user.member_since }}</p>
+			<p><b>Compte confirmé </b> {{ prof.user.confirmed }}</p>
+			
+			
+
+		</div>
+	</div>
+</div>
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+	<div class="x_panel">
+		<div class="x_title">
+			<h2>Prof info </h2>
+			<ul class="nav navbar-right panel_toolbox">
+				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="{{ url_for('admin.edit_prof', prof_id=prof.id) }}">Edit</a>
+						</li>
+						<li><a href="#">Settings 2</a>
+						</li>
+					</ul>
+				</li>
+				<li><a class="close-link"><i class="fa fa-close"></i></a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="x_content">
+			<p><b>Prof id</b> {{ prof.id }}</p>
+			<p><b>Titre</b> {{ prof.title }}</p>
+			<p><b>Prix</b> {{ prof.rate }}</p>
+			<p><b>Solde</b> {{ prof.credit }} dh</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
